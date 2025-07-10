@@ -37,14 +37,14 @@ const Contact = () => {
 
     try {
       const result = await emailjs.send(
-        'service_wmlu8om', // Replace with your EmailJS Service ID
-        'template_xglrn5k', // Replace with your EmailJS Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_wmlu8om',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_xglrn5k',
         {
           user_name: formData.user_name,
           user_email: formData.user_email,
           message: formData.message
         },
-        'eshD3I5fRy9vZuwdl' // Replace with your EmailJS User ID
+        import.meta.env.VITE_EMAILJS_USER_ID || 'eshD3I5fRy9vZuwdl'
       );
 
       if (result.status === 200) {
