@@ -23,8 +23,19 @@ const Navbar = () => {
     }}>
       <div className="container">
         <a className="navbar-brand fw-bold text-info fs-3" href="#hero" style={{fontSize: '1.5rem', fontWeight: '700'}}>Jijith</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
+        <button 
+          className="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav"
+          style={{
+            border: '2px solid #0dcaf0',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            background: 'rgba(13, 202, 240, 0.1)'
+          }}
+        >
+          <span className="navbar-toggler-icon" style={{color: '#ffffff', fontSize: '1.2rem'}}></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-center">
@@ -82,6 +93,30 @@ const Navbar = () => {
           color: #0dcaf0 !important;
           transform: scale(1.05);
           transition: all 0.3s ease;
+        }
+        .navbar-toggler:focus {
+          box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+        }
+        .navbar-toggler:hover {
+          background: rgba(13, 202, 240, 0.2) !important;
+          border-color: #0dcaf0 !important;
+        }
+        @media (max-width: 991.98px) {
+          .navbar-nav {
+            background: rgba(20, 40, 80, 0.95);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            backdrop-filter: blur(16px);
+          }
+          .navbar-nav .nav-link {
+            padding: 0.75rem 1rem !important;
+            border-radius: 6px;
+            margin: 0.25rem 0;
+          }
+          .navbar-nav .nav-link:hover {
+            background: rgba(13, 202, 240, 0.1);
+          }
         }
       `}</style>
     </nav>

@@ -51,8 +51,54 @@ const Projects = () => {
                   </div>
                   <p className="flex-grow-1 mb-3">{project.description}</p>
                   <div className="mt-auto d-flex gap-2">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light flex-fill"><FaGithub /> GitHub</a>
-                    {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-info flex-fill"><FaExternalLinkAlt /> Demo</a>}
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn btn-sm flex-fill"
+                      style={{
+                        background: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                        border: theme === 'dark' ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.2)',
+                        color: theme === 'dark' ? '#ffffff' : '#181f2a',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.background = theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)';
+                        e.target.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.background = theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+                        e.target.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      <FaGithub className="me-1" /> GitHub
+                    </a>
+                    {project.demo && (
+                      <a 
+                        href={project.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn btn-sm flex-fill"
+                        style={{
+                          background: 'linear-gradient(135deg, #0dcaf0 0%, #0d6efd 100%)',
+                          border: 'none',
+                          color: '#ffffff',
+                          fontWeight: '600',
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'translateY(-2px)';
+                          e.target.style.boxShadow = '0 4px 12px rgba(13, 202, 240, 0.3)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'translateY(0)';
+                          e.target.style.boxShadow = 'none';
+                        }}
+                      >
+                        <FaExternalLinkAlt className="me-1" /> Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
